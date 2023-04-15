@@ -49,12 +49,12 @@
                     Additional issues will be published soon.
                 {{/match}}
 
-                <button class="gh-loadmore gh-btn">Load more issues</button>
+                <button class="gh-loadmore gh-btn">加载更多</button>
             </section>
 
             <aside class="gh-sidebar">
                 <section class="gh-section">
-                    <h2 class="gh-section-title">About</h2>
+                    <h2 class="gh-section-title">关于</h2>
 
                     <div class="gh-about">
                         {{#if @site.icon}}
@@ -67,6 +67,8 @@
                             {{#if @site.description}}
                                 <p class="gh-about-description">{{@site.description}}</p>
                             {{/if}}
+                            <p>注意：本站点使用Google Analytics对您的用户行为进行追踪。</p>
+                            <p>Note: This site uses Google Analytics to track your user behavior.</p>
                         </section>
                     </div>
 
@@ -75,7 +77,7 @@
                 {{#get "posts" filter="featured:true" limit="all" as |featured|}}
                     {{#if featured}}
                         <section class="gh-section">
-                            <h3 class="gh-section-title">Featured</h3>
+                            <h3 class="gh-section-title">精选</h3>
 
                             <div class="gh-featured gh-feed">
                                 {{#foreach featured}}
@@ -88,7 +90,7 @@
 
                 {{#get "tags" include="count.posts" limit="all" as |topic|}}
                     <section class="gh-section">
-                        <h3 class="gh-section-title">Topics</h3>
+                        <h3 class="gh-section-title">主题</h3>
 
                         <div class="gh-topic">
                             {{#foreach topic}}
