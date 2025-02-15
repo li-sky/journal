@@ -31,7 +31,7 @@
 
         <div class="gh-wrapper">
             <section class="gh-section">
-                <h2 class="gh-section-title">More issues</h2>
+                <h2 class="gh-section-title">其他文章</h2>
 
                 <div class="gh-feed">
                     {{^is "paged"}}
@@ -46,7 +46,7 @@
                 </div>
 
                 {{#match posts.length "=" 1}}
-                    Additional issues will be published soon.
+                    精彩还在后头！
                 {{/match}}
 
                 <button class="gh-loadmore gh-btn">加载更多</button>
@@ -71,7 +71,28 @@
                             <p>Note: This site uses Google Analytics to track your user behavior.</p>
                         </section>
                     </div>
+                    {{#if @site.members_enabled}}
+                        {{^if @member.paid}}
+                            <div class="gh-signup">
+                                {{^if @member}}
+                                    <p class="gh-signup-description">现在注册！注册什么都不会得到，但是你还是应该注册！</p>
 
+                                    <a class="gh-subscribe-input" href="#/portal/signup" data-portal="signup">
+                                        <div class="gh-subscribe-input-text">
+                                            {{> icons/email}}
+                                            jamie@example.com
+                                        </div>
+                                        <div class="gh-subscribe-input-btn">注册！</div>
+                                    </a>
+                                {{else}}
+                                    {{#if @setting.paid_members_enabled}}
+                                        <p class="gh-signup-description">投喂以获得全部内容</p>
+                                        <a class="gh-signup-btn gh-btn gh-primary-btn" href="#/portal/account/plans" data-portal="account/plans">Upgrade now</a>
+                                    {{/if}}
+                                {{/if}}
+                            </div>
+                        {{/if}}
+                    {{/if}}
 
                 </section>
 
